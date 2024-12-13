@@ -5,7 +5,6 @@ import { register } from '../../redux/auth/operations';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import css from './RegistrationForm.module.css';
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
@@ -13,7 +12,7 @@ const FeedbackSchema = Yup.object().shape({
     .max(50, 'Too Long! Max 50 characters.')
     .required('Required'),
   email: Yup.string()
-    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Invalid email')
+    .matches(/^[^\s@]{7,}@[^\s@]+\.[^\s@]+$/, 'Invalid email')
     .required('Required'),
   password: Yup.string()
     .min(8, 'Too Short! Min 8 characters.')
